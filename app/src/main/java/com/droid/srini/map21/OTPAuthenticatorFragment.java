@@ -17,12 +17,22 @@ public class OTPAuthenticatorFragment extends DialogFragment {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
-// Add the buttons
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        // Inflate and set the layout for the dialog
+        // Pass null as the parent view because its going in the dialog layout
+        builder.setView(inflater.inflate(R.layout.otp_dialog, null))
+        // Add the buttons
+        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
             public void onClick(DialogInterface dialog, int id) {
-                // User clicked OK button
+                // sign in the user ...
+                //setContentView(R.layout.activity_main);
             }
-        });
+        })
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        //
+                    }
+                });
         return builder.create();
     }
 
