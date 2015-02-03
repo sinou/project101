@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="demo_title">version 1.0"</string>
-    <string name="my_location">My Location!"</string>
-    <string name="action_settings">Action Settings"</string>
+    <string name="demo_title">version 1.0</string>
+    <string name="my_location">My Location!</string>
+    <string name="action_settings">Action Settings</string>
     <string-array name="planets_array">
         <item>Mercury</item>
         <item>Venus</item>
@@ -15,7 +15,9 @@
         <item>Neptune</item>
         <item>My Location</item>
     </string-array>
-    <string name="drawer_open">Open Drawer"</string>
-    <string name="drawer_close">Close Drawer"</string>
+    <string name="drawer_open">Open Drawer</string>
+    <string name="drawer_close">Close Drawer</string>
+    <string name="app_name">SnapWaze</string>
+    <string name="OTP">Enter OTP</string>
 
 </resources>
