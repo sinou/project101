@@ -25,12 +25,13 @@ public class OTPAuthenticatorFragment extends DialogFragment {
             @Override
             public void onClick(DialogInterface dialog, int id) {
                 // sign in the user ...
-                //super.setContentView(R.layout.activity_main);
+                getActivity().setContentView(R.layout.activity_main);
             }
         })
                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         //super.onBackPressed();
+                        getActivity().onBackPressed();
                     }
                 });
         return builder.create();
