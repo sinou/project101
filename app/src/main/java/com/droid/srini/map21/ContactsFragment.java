@@ -74,7 +74,7 @@ public class ContactsFragment extends Fragment implements
         // Gets the ListView from the View list of the parent activity
         mContactsList =
                 (ListView) getActivity().findViewById(R.layout.contact_list_view);
-        // Gets a CursorAdapter
+        // Gets a CursorAdapter//
         mCursorAdapter = new SimpleCursorAdapter(
                 getActivity(),
                 R.layout.contact_list_item,
