@@ -69,4 +69,20 @@ public class ContactsFragment extends Fragment implements
                 container, false);
     }
 
-        }
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        // Gets the ListView from the View list of the parent activity
+        mContactsList =
+                (ListView) getActivity().findViewById(R.layout.contact_list_view);
+        // Gets a CursorAdapter
+        mCursorAdapter = new SimpleCursorAdapter(
+                getActivity(),
+                R.layout.contact_list_item,
+                null,
+                FROM_COLUMNS, TO_IDS,
+                0);
+        // Sets the adapter for the ListView
+        mContactsList.setAdapter(mCursorAdapter);
+    }
+
+}
