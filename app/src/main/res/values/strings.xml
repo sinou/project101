@@ -4,16 +4,17 @@
     <string name="app_name">snapwaze</string>
     <string name="my_location">My Location</string>
     <string name="action_settings">Action Settings</string>
+    <string name="contacts">Contacts</string> <!--this is same as 'Contacts' in the String Array-->
+    <string name="home">Home</string> <!--this is same as 'Home' in the String Array-->
+    <string name="logout">Log Out</string> <!--this is same as 'Log Out' in the String Array-->
     <string-array name="planets_array">
         <item>Mercury</item>
         <item>Venus</item>
         <item>Earth</item>
         <item>Mars</item>
-        <item>Jupiter</item>
-        <item>Saturn</item>
-        <item>Uranus</item>
-        <item>Neptune</item>
-        <item>My Location</item>
+        <item>Contacts</item> <!--this is same as 'Contacts' above-->
+        <item>Home</item> <!--this is same as 'Home' above-->
+        <item>Log Out</item> <!--this is same as 'Log Out' above-->
     </string-array>
     <string name="drawer_open">Open Drawer"</string>
     <string name="drawer_close">Close Drawer"</string>

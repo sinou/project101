@@ -44,12 +44,4 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="95dp" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/title"
-        android:text="SnapWaze"
-        android:layout_above="@+id/signUpButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="89dp" />
 </RelativeLayout>

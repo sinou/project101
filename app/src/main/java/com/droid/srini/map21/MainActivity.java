@@ -14,6 +14,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.database.Cursor;
 import android.location.Location;
@@ -279,18 +280,27 @@ public class MainActivity extends FragmentActivity
 
     private void selectItem(int position) {
         // update the main content by replacing fragments
-        Fragment fragment = new PlanetFragment();
-        Bundle args = new Bundle();
-        args.putInt(PlanetFragment.ARG_PLANET_NUMBER, position);
-        fragment.setArguments(args);
+        if(mPlanetTitles[position].equals(R.string.contacts)){
+            Intent i = new Intent(getApplicationContext(), MyContacts.class);
+            startActivity(i);
+        }else if(mPlanetTitles[position].equals(R.string.home)){
+            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(i);
+        }else{
+            Fragment fragment = new PlanetFragment();
+            Bundle args = new Bundle();
+            args.putInt(PlanetFragment.ARG_PLANET_NUMBER, position);
+            fragment.setArguments(args);
 
-        FragmentManager fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.map, fragment).commit();
+            FragmentManager fragmentManager = getFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.map, fragment).commit();
 
-        // update selected item and title, then close the drawer
-        mDrawerList.setItemChecked(position, true);
-        setTitle(mPlanetTitles[position]);
-        mDrawerLayout.closeDrawer(mDrawerList);
+            // update selected item and title, then close the drawer
+            mDrawerList.setItemChecked(position, true);
+            setTitle(mPlanetTitles[position]);
+            mDrawerLayout.closeDrawer(mDrawerList);
+        }
+
     }
 
     @Override
