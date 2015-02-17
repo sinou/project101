@@ -4,15 +4,15 @@
     <string name="app_name">snapwaze</string>
     <string name="my_location">Share my Location</string>
     <string name="action_settings">Action Settings</string>
-    <string name="contacts">Contacts</string> <!--this is same as 'Contacts' in the String Array-->
-    <string name="home">Home</string> <!--this is same as 'Home' in the String Array-->
-    <string name="logout">Log Out</string> <!--this is same as 'Log Out' in the String Array-->
-    <string name="share_location">Share Location</string> <!--this is same as 'Share Location' in the String Array-->
+    <string name="contacts">Contacts</string>
+    <string name="home">Home</string>
+    <string name="logout">Log Out</string>
+    <string name="share_location">Share Location</string>
     <string-array name="menu_items">
-        <item>Home</item> <!--this is same as 'Home' above-->
-        <item>Share Location</item> <!--this is same as 'Share Location' above-->
-        <item>Contacts</item> <!--this is same as 'Contacts' above-->
-        <item>Log Out</item> <!--this is same as 'Log Out' above-->
+        <item>@string/home</item>
+        <item>@string/share_location</item>
+        <item>@string/contacts</item>
+        <item>@string/logout</item>
     </string-array>
     <string name="drawer_open">Open Drawer"</string>
     <string name="drawer_close">Close Drawer"</string>
