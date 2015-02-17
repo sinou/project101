@@ -286,6 +286,10 @@ public class MainActivity extends FragmentActivity
         }else if(mPlanetTitles[position].equals(R.string.home)){
             Intent i = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(i);
+        }else if(mPlanetTitles[position].equals(R.string.logout)){
+            Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(i);
+            finish();
         }else{
             Fragment fragment = new PlanetFragment();
             Bundle args = new Bundle();

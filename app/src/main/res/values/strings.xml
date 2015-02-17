@@ -12,8 +12,8 @@
         <item>Venus</item>
         <item>Earth</item>
         <item>Mars</item>
-        <item>Contacts</item> <!--this is same as 'Contacts' above-->
         <item>Home</item> <!--this is same as 'Home' above-->
+        <item>Contacts</item> <!--this is same as 'Contacts' above-->
         <item>Log Out</item> <!--this is same as 'Log Out' above-->
     </string-array>
     <string name="drawer_open">Open Drawer"</string>
