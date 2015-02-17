@@ -8,10 +8,6 @@
     <string name="home">Home</string> <!--this is same as 'Home' in the String Array-->
     <string name="logout">Log Out</string> <!--this is same as 'Log Out' in the String Array-->
     <string-array name="planets_array">
-        <item>Mercury</item>
-        <item>Venus</item>
-        <item>Earth</item>
-        <item>Mars</item>
         <item>Home</item> <!--this is same as 'Home' above-->
         <item>Contacts</item> <!--this is same as 'Contacts' above-->
         <item>Log Out</item> <!--this is same as 'Log Out' above-->

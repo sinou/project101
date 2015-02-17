@@ -14,6 +14,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.database.Cursor;
@@ -61,6 +62,7 @@ public class MainActivity extends FragmentActivity
     private ListView mDrawerList;
     private CharSequence mTitle;
     private ActionBarDrawerToggle mDrawerToggle;
+
 
     private GoogleApiClient mGoogleApiClient;
     //private TextView mMessageView;
@@ -280,13 +282,14 @@ public class MainActivity extends FragmentActivity
 
     private void selectItem(int position) {
         // update the main content by replacing fragments
-        if(mPlanetTitles[position].equals(R.string.contacts)){
+        Helper helper = new Helper(this);
+        if(mPlanetTitles[position].equals(helper.contactsString)){
             Intent i = new Intent(getApplicationContext(), MyContacts.class);
             startActivity(i);
-        }else if(mPlanetTitles[position].equals(R.string.home)){
+        }else if(mPlanetTitles[position].equals(helper.homeString)){
             Intent i = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(i);
-        }else if(mPlanetTitles[position].equals(R.string.logout)){
+        }else if(mPlanetTitles[position].equals(helper.logoutString)){
             Intent i = new Intent(getApplicationContext(), LoginActivity.class);
             startActivity(i);
             finish();
@@ -343,6 +346,19 @@ public class MainActivity extends FragmentActivity
             ((ImageView) rootView.findViewById(R.id.image)).setImageResource(imageId);
             getActivity().setTitle(planet);
             return rootView;
+        }
+    }
+
+    public class Helper {
+
+        String contactsString;
+        String homeString;
+        String logoutString;
+
+        Helper(Context c){
+            contactsString = c.getString(R.string.contacts);
+            homeString = c.getString(R.string.home);
+            logoutString = c.getString(R.string.logout);
         }
     }
 
