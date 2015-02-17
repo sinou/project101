@@ -1,8 +1,11 @@
+/*
 package com.droid.srini.map21;
 
+*/
 /**
  * Created by srinivasane on 2/3/2015.
- */
+ *//*
+
 
 import android.annotation.SuppressLint;
 import android.database.Cursor;
@@ -25,10 +28,12 @@ public class ContactsFragment extends Fragment implements
         LoaderManager.LoaderCallbacks<Cursor>,
         AdapterView.OnItemClickListener {
 
-    /*
+    */
+/*
 * Defines an array that contains column names to move from
 * the Cursor to the ListView.
-*/
+*//*
+
     @SuppressLint("InlinedApi")
     private final static String[] FROM_COLUMNS = {
             Build.VERSION.SDK_INT
@@ -36,11 +41,13 @@ public class ContactsFragment extends Fragment implements
                     Contacts.DISPLAY_NAME_PRIMARY :
                     Contacts.DISPLAY_NAME
     };
-    /*
+    */
+/*
      * Defines an array that contains resource ids for the layout views
      * that get the Cursor column contents. The id is pre-defined in
      * the Android framework, so it is prefaced with "android.R.id"
-     */
+     *//*
+
     private final static int[] TO_IDS = {
             android.R.id.text1
     };
@@ -85,4 +92,4 @@ public class ContactsFragment extends Fragment implements
         mContactsList.setAdapter(mCursorAdapter);
     }
 
-}
+}*/

@@ -15,8 +15,11 @@ import com.google.android.gms.maps.SupportMapFragment;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.res.Configuration;
+import android.database.Cursor;
 import android.location.Location;
 import android.os.Bundle;
+import android.provider.Contacts;
+import android.provider.ContactsContract;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
@@ -31,6 +34,10 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.Locale;
 
@@ -68,6 +75,7 @@ public class MainActivity extends FragmentActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
         //mMessageView = (TextView) findViewById(R.id.message_text);
 
@@ -140,6 +148,8 @@ public class MainActivity extends FragmentActivity
         getActionBar().setHomeButtonEnabled(true);
     }
 
+
+
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
@@ -195,6 +205,32 @@ public class MainActivity extends FragmentActivity
                     + LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
             Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
         }
+        //testing contacts
+        Cursor phones = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null,null,null, null);
+        JSONArray contactsJson = new JSONArray();
+        try{
+        while (phones.moveToNext())
+        {
+            String name=phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
+            String phoneNumber = phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+            String test = "test";
+            JSONObject tempJson = new JSONObject();
+
+                tempJson.put("name", name);
+                tempJson.put("phoneNumber", phoneNumber);
+                contactsJson.put(tempJson);
+
+
+        }
+
+        JSONObject contacts = new JSONObject();
+        contacts.put("contacts", contactsJson);
+        }catch(JSONException e){
+            System.out.println(e);
+        }
+
+        System.out.println(contactsJson);
+
     }
 
     /**
