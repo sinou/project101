@@ -19,7 +19,7 @@ import org.json.JSONObject;
 
 import java.util.LinkedList;
 
-public class MyContacts extends ListActivity {
+public class MyContactsActivity extends ListActivity {
         public void onCreate(Bundle icicle) {
             super.onCreate(icicle);
             /*String[] values = new String[] { "Android", "iPhone", "WindowsMobile",

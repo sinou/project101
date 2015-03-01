@@ -20,6 +20,7 @@ import android.content.res.Configuration;
 import android.database.Cursor;
 import android.location.Location;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.provider.ContactsContract;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.FragmentActivity;
@@ -60,6 +61,7 @@ public class MainActivity extends FragmentActivity
     private ListView mDrawerList;
     private CharSequence mTitle;
     private ActionBarDrawerToggle mDrawerToggle;
+    public double latitute, longitude;
 
 
     private GoogleApiClient mGoogleApiClient;
@@ -79,6 +81,12 @@ public class MainActivity extends FragmentActivity
 
         setContentView(R.layout.activity_main);
         //mMessageView = (TextView) findViewById(R.id.message_text);
+
+        /*//remove after test
+        if (android.os.Build.VERSION.SDK_INT > 9) {
+            StrictMode.ThreadPolicy policy = new     StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }*/
 
         //navigation drawer stuff
         mPlanetTitles = getResources().getStringArray(R.array.menu_items);
@@ -120,6 +128,7 @@ public class MainActivity extends FragmentActivity
                 .addConnectionCallbacks(this)
                 .addOnConnectionFailedListener(this)
                 .build();
+
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerToggle = new ActionBarDrawerToggle(
                 this,                  /* host Activity */
@@ -147,6 +156,7 @@ public class MainActivity extends FragmentActivity
 
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
+
     }
 
 
@@ -282,13 +292,19 @@ public class MainActivity extends FragmentActivity
         // update the main content by replacing fragments
         Helper helper = new Helper(this);
         if(mPlanetTitles[position].equals(helper.contactsString)){
-            Intent i = new Intent(getApplicationContext(), MyContacts.class);
+            Intent i = new Intent(getApplicationContext(), MyContactsActivity.class);
             startActivity(i);
         }else if(mPlanetTitles[position].equals(helper.homeString)){
             Intent i = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(i);
         }else if(mPlanetTitles[position].equals(helper.logoutString)){
             Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(i);
+            finish();
+        }else if(mPlanetTitles[position].equals(helper.shareLocationString)){
+            Intent i = new Intent(getApplicationContext(), WeatherActivity.class);
+            i.putExtra("latitude", "" + LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient).getLatitude());
+            i.putExtra("longitude", "" + LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient).getLongitude());
             startActivity(i);
             finish();
         }else{
@@ -352,11 +368,13 @@ public class MainActivity extends FragmentActivity
         String contactsString;
         String homeString;
         String logoutString;
+        String shareLocationString;
 
         Helper(Context c){
             contactsString = c.getString(R.string.contacts);
             homeString = c.getString(R.string.home);
             logoutString = c.getString(R.string.logout);
+            shareLocationString = c.getString(R.string.share_location);
         }
     }
 

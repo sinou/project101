@@ -23,4 +23,27 @@
         android:layout_alignLeft="@+id/signUpButton"
         android:layout_alignStart="@+id/signUpButton" />
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberPassword"
+        android:ems="10"
+        android:id="@+id/otpText"
+        android:layout_below="@+id/signUpButton"
+        android:layout_alignLeft="@+id/signUpButton"
+        android:layout_alignStart="@+id/signUpButton"
+        android:visibility="invisible" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Verify"
+        android:id="@+id/verifyButton"
+        android:layout_below="@+id/otpText"
+        android:layout_alignLeft="@+id/otpText"
+        android:layout_alignStart="@+id/otpText"
+        android:layout_alignRight="@+id/otpText"
+        android:layout_alignEnd="@+id/otpText"
+        android:visibility="invisible" />
+
 </RelativeLayout>
