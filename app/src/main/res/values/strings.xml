@@ -34,5 +34,6 @@
 
     <string name="URL_OTP">http://54.69.75.83/snapwaze/api/getAcessCode</string>
     <string name="URL_verification">http://54.69.75.83/snapwaze/api/getAcessCode</string>
+    <string name="URL_update_contacts">http://54.69.75.83/snapwaze/api/updateContacts</string>
 
 </resources>
